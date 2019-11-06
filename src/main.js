@@ -6,9 +6,18 @@ Vue.use(VueRouter);
 Vue.config.productionTip = false
 
 const routes = [
-    { path: '/', component: ShowFeatured },
-    { path: '/products', component: ShowProducts },
-    { path: '/categories', component: ShowCategories }
+    { path: '/',
+      component: ShowFeatured,
+      name: 'featured'
+    },
+    { path: '/products',
+      component: ShowProducts,
+      name: 'products'
+    },
+    { path: '/categories',
+      component: ShowCategories,
+      name: 'categories'
+    }
 ]
 
 import ShowCategories from './components/ShowCategories.vue';

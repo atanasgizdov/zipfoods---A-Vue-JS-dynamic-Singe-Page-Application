@@ -4,7 +4,7 @@
     <nav>
         <ul>
             <li v-for='link in links' :key='link'>
-                <router-link :to='paths[link]' exact>{{ link }}</router-link>
+                <router-link :to='names[link]' exact>{{ link }}</router-link>
             </li>
         </ul>
     </nav>
@@ -32,10 +32,10 @@ export default {
     return {
       products: products,
       links: ['home', 'products', 'categories'],
-      paths: {
+      names: {
         home: '/',
-        products: '/products',
-        categories: '/categories'
+        products: 'products',
+        categories: 'categories'
         }
       }
   },
