@@ -1,28 +1,49 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <nav>
+        <ul>
+            <li v-for='link in links' :key='link'>
+                <router-link :to='paths[link]' exact>{{ link }}</router-link>
+            </li>
+        </ul>
+    </nav>
+
+<router-view></router-view>
+
   </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+//import ShowProducts from './components/ShowProducts.vue'
+//import ShowFeatured from './components/ShowFeatured.vue'
+//import ShowCategories from './components/ShowCategories.vue'
+import { products } from './products.js';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    //ShowProducts,
+    //ShowFeatured,
+    //ShowCategories
+  },
+  data() {
+    return {
+      products: products,
+      links: ['home', 'products', 'categories'],
+      paths: {
+        home: '/',
+        products: '/products',
+        categories: '/categories'
+        }
+      }
+  },
+  methods: {
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang='scss'>
+@import './assets/css/zipfoods.scss'
 </style>
